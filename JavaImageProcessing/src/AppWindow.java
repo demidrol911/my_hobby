@@ -40,25 +40,25 @@ public class AppWindow extends JFrame {
    }
    
    private JToolBar createToolbar() {
-	  JToolBar tool_bar = new JToolBar();
-	  return tool_bar;
+      JToolBar tool_bar = new JToolBar();
+      return tool_bar;
    }
    
    private JMenuBar createMenuBar() {
-	  JMenuBar menu_bar = new JMenuBar();
-	  for(int i = 0; i < nameMenu.length; i++) {
-	     if(!(nameMenu[i] == null || nameMenu[i].isEmpty())){
-			JMenu menu = new JMenu(nameMenu[i]);
-			for(int j = 0; j < nameMenuItem[i].length; j++)
-			   if(nameMenuItem[i][j] == null || nameMenuItem[i][j].isEmpty())menu.addSeparator();
-			   else {
-				  JMenuItem menu_item = new JMenuItem(nameMenuItem[i][j]);
-				  menu.add(menu_item);
-			   }
-			menu_bar.add(menu);
-		 }
-	  }
-	  return menu_bar;
+      JMenuBar menu_bar = new JMenuBar();
+      for(int i = 0; i < nameMenu.length; i++) {
+	 if(!(nameMenu[i] == null || nameMenu[i].isEmpty())){
+	    JMenu menu = new JMenu(nameMenu[i]);
+	     for(int j = 0; j < nameMenuItem[i].length; j++)
+	        if(nameMenuItem[i][j] == null || nameMenuItem[i][j].isEmpty())menu.addSeparator();
+	        else {
+		        JMenuItem menu_item = new JMenuItem(nameMenuItem[i][j]);
+			menu.add(menu_item);
+		}
+	     menu_bar.add(menu);
+         }
+      }
+      return menu_bar;
    }
    
    public static final int DEFAULT_WIDTH = 600;
