@@ -35,8 +35,8 @@ public class ImagePanel extends JComponent {
          g2.setFont(new Font(g2.getFont().getFamily(), Font.BOLD, 20));
 	 FontMetrics fm = g2.getFontMetrics();
          Rectangle2D r = fm.getStringBounds(message, g2);
-         int x = (this.getWidth() - (int) r.getWidth())/2;
-         int y = (this.getHeight() + 10 - (int) r.getHeight())/2 + fm.getAscent();
+         int x = (this.getWidth()-(int)r.getWidth())/2;
+         int y = (this.getHeight()+10-(int)r.getHeight())/2+fm.getAscent();
          g2.drawString(message, x, y);
       }
    }
