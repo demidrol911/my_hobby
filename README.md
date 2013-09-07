@@ -1,2 +1,2 @@
-my_hobby
+This repository contains my projects, hobbies :-)
 ========
