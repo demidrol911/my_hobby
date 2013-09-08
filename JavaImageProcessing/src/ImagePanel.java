@@ -1,4 +1,5 @@
 import javax.swing.JComponent;
+
 import java.awt.image.BufferedImage;
 import java.awt.Color;
 import java.awt.Font;
@@ -12,6 +13,7 @@ import java.awt.RenderingHints;
  * Сomponent for viewing an image
  */
  
+@SuppressWarnings("serial")
 public class ImagePanel extends JComponent {
 	
    public ImagePanel() {
@@ -23,8 +25,8 @@ public class ImagePanel extends JComponent {
       this.image = image;
    }
    
-   public void paint(Graphics g){
-      super.paint(g);
+   public void paintComponent(Graphics g) {
+      super.paintComponent(g);
       Graphics2D g2 = (Graphics2D)g;
       g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
       g2.setColor(Color.GRAY);
@@ -33,7 +35,7 @@ public class ImagePanel extends JComponent {
          String message  = "Please upload your image :)";
          g2.setColor(Color.BLACK);
          g2.setFont(new Font(g2.getFont().getFamily(), Font.BOLD, 20));
-	 FontMetrics fm = g2.getFontMetrics();
+	     FontMetrics fm = g2.getFontMetrics();
          Rectangle2D r = fm.getStringBounds(message, g2);
          int x = (this.getWidth()-(int)r.getWidth())/2;
          int y = (this.getHeight()+10-(int)r.getHeight())/2+fm.getAscent();

@@ -5,6 +5,7 @@ import java.awt.Insets;
  * Class wrapper for class GridBagConstraints
  */
 
+@SuppressWarnings("serial")
 public class GBC extends GridBagConstraints {
 
    public GBC(int gridx, int gridy) {
@@ -53,3 +54,4 @@ public class GBC extends GridBagConstraints {
       return this;
    }
 }
+

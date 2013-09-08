@@ -3,18 +3,18 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.Color;
 import java.awt.Container;
 
 /**
  * The main application window
  */
 
+@SuppressWarnings("serial")
 public class AppWindow extends JFrame {
    
    public AppWindow() {
@@ -46,18 +46,17 @@ public class AppWindow extends JFrame {
    
    private JMenuBar createMenuBar() {
       JMenuBar menu_bar = new JMenuBar();
-      for(int i = 0; i < nameMenu.length; i++) {
-	 if(!(nameMenu[i] == null || nameMenu[i].isEmpty())){
-	    JMenu menu = new JMenu(nameMenu[i]);
-	     for(int j = 0; j < nameMenuItem[i].length; j++)
-	        if(nameMenuItem[i][j] == null || nameMenuItem[i][j].isEmpty())menu.addSeparator();
-	        else {
+      for(int i = 0; i < nameMenu.length; i++)
+	     if(!(nameMenu[i] == null || nameMenu[i].isEmpty())){
+	       JMenu menu = new JMenu(nameMenu[i]);
+	       for(int j = 0; j < nameMenuItem[i].length; j++)
+	          if(nameMenuItem[i][j] == null || nameMenuItem[i][j].isEmpty())menu.addSeparator();
+	          else {
 		        JMenuItem menu_item = new JMenuItem(nameMenuItem[i][j]);
-			menu.add(menu_item);
-		}
-	     menu_bar.add(menu);
+			    menu.add(menu_item);
+		      }
+	       menu_bar.add(menu);
          }
-      }
       return menu_bar;
    }
    
