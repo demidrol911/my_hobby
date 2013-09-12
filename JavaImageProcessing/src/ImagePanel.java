@@ -26,10 +26,12 @@ public class ImagePanel extends JComponent {
 	}
    
 	public void setImage(BufferedImage image) {
-		this.image = image;
-		this.setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
-		this.revalidate();
-		this.repaint();
+		if(image != null) {
+			this.image = image;
+			this.setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
+			this.revalidate();
+			this.repaint();
+		}
 	}
 	
 	public BufferedImage getImage() {

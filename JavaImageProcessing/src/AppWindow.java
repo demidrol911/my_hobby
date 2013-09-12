@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -78,14 +80,32 @@ public class AppWindow extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
-		if(cmd.equals("load_image")){
+		if(cmd.equals("load_image")) {
 			JFileChooser fileChooser = new JFileChooser();
 			if(fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
 				originalPanel.setImage(ImageOperation.loadImage(fileChooser.getSelectedFile()));
 				resultPanel.setImage(ImageOperation.loadImage(fileChooser.getSelectedFile()));
 			}
 		}
-		else if(cmd.equals("conv_image")){
+		else if(cmd.equals("save_image")) {
+			JFileChooser fileChooser = new JFileChooser();
+			if(fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION){
+				File file = fileChooser.getSelectedFile();
+				if(!file.exists())
+					try{
+						file.createNewFile();
+						}
+				    catch (Exception ex) {
+				    	ex.printStackTrace();
+				    }
+				ImageOperation.saveImage(file, resultPanel.getImage());
+			}
+		}
+		else if(cmd.equals("exit")) {
+			this.dispose();
+			System.exit(0);
+		}
+		else if(cmd.equals("conv_image")) {
 			float[][] kernel = {{-0.1f, 0.2f, -0.1f},
 					            {0.2f, 3, 0.2f},
 					            {-0.1f, 0.2f, -0.1f}};
